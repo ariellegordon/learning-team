@@ -18,4 +18,13 @@ const Unicorn = db.define("unicorn", {
   }
 });
 
+Unicorn.beforeValidate(unicorn => {
+  let name = unicorn.name;
+  name = name.split(" ");
+  let result = name.map(x => {
+    return x[0].toUpperCase() + x.slice(1).toLowerCase();
+  });
+  unicorn.name = result.join(" ");
+});
+
 module.exports = { db, Unicorn };
