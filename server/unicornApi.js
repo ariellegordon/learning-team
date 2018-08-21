@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Unicorn } = require("./unicorn");
 
-router.get("/", async (req, res, next) => {
+router.get("/unicorns", async (req, res, next) => {
   try {
     const unicorns = await Unicorn.findAll();
     res.json(unicorns);
@@ -10,7 +10,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/unicorns/:id", async (req, res, next) => {
   try {
     const unicorn = await Unicorn.findOne({ where: { id: req.params.id } });
     res.json(unicorn);
@@ -19,6 +19,6 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post();
+// router.post();
 
 module.exports = router;
