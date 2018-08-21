@@ -41,4 +41,47 @@ describe("All Unicorn Route: ", () => {
         });
     });
   });
+  describe("GET /api/unicorns/:id", () => {
+    let unicorn1;
+    beforeEach(async () => {
+      let array = await Promise.all([
+        Unicorn.create({
+          name: "Princess Unicorn",
+          age: 11
+        }),
+        Unicorn.create({
+          name: "Little Miss Unicorn",
+          age: 19
+        }),
+        Unicorn.create({
+          name: "Pretty Pretty Unicorn",
+          age: 50
+        })
+      ]);
+      unicorn1 = array[0];
+    });
+    it("returns the JSON of the article based on the id", () => {
+      return agent
+        .get("/api/unicorns/" + unicorn1.id)
+        .expect(200)
+        .expect(res => {
+          if (typeof res.body === "string") {
+            res.body = JSON.parse(res.body);
+          }
+          expect(res.body.name).to.equal("Princess Unicorn");
+        });
+    });
+  });
+  describe("POST /api/unicorns/", () => {
+    it("creates a new unicorn", () => {
+      return agent
+        .post("/api/unicorns")
+        .send({
+          name: "Happy The Unicorn",
+          age: 21
+        })
+        .expect(200)
+        .expect(res => expect(res.body.name).to.equal("Happy The Unicorn"));
+    });
+  });
 });

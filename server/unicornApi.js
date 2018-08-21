@@ -19,6 +19,13 @@ router.get("/unicorns/:id", async (req, res, next) => {
   }
 });
 
-// router.post();
+router.post("/unicorns", async (req, res, next) => {
+  try {
+    const unicorn = await Unicorn.create(req.body);
+    res.json(unicorn);
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
