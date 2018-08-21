@@ -38,4 +38,15 @@ describe("Model methods", function() {
       expect(rainicorn.name).to.equal("Lady Rainicorn");
     });
   });
+  describe("Instance methods", () => {
+    let unicorn1;
+    beforeEach(async () => {
+      unicorn1 = await Unicorn.create({ name: "Unicorn Friend", age: 18 });
+    });
+    describe("Find Birth Year", () => {
+      it("returns the birth year of a Unicorn", () => {
+        expect(unicorn1.findBirthYear()).to.equal(2000);
+      });
+    });
+  });
 });

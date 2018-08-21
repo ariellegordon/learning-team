@@ -27,4 +27,10 @@ Unicorn.beforeValidate(unicorn => {
   unicorn.name = result.join(" ");
 });
 
+Unicorn.prototype.findBirthYear = function() {
+  let age = this.age;
+  let today = new Date().getFullYear();
+  return Math.abs(today - age);
+};
+
 module.exports = { db, Unicorn };
