@@ -15,10 +15,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500).send(err.message);
 });
 
-// const PORT = 5000;
+const PORT = 5000;
 
-// app.listen(PORT, () => {
-//   console.log("listening on port ", PORT);
-// });
+app.listen(PORT, () => {
+  console.log("listening on port ", PORT);
+});
 
 module.exports = app;
