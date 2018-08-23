@@ -18,19 +18,4 @@ const Unicorn = db.define("unicorn", {
   }
 });
 
-Unicorn.beforeValidate(unicorn => {
-  let name = unicorn.name;
-  name = name.split(" ");
-  let result = name.map(x => {
-    return x[0].toUpperCase() + x.slice(1).toLowerCase();
-  });
-  unicorn.name = result.join(" ");
-});
-
-Unicorn.prototype.findBirthYear = function() {
-  let age = this.age;
-  let today = new Date().getFullYear();
-  return Math.abs(today - age);
-};
-
 module.exports = { db, Unicorn };
