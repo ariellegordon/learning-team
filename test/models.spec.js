@@ -11,8 +11,8 @@ describe("Unicorn", () => {
 });
 
 describe("Model methods", function() {
-  beforeEach(() => {
-    return Promise.all([
+  beforeEach(async () => {
+    return await Promise.all([
       Unicorn.create({
         name: "Quirin",
         imageUrl:
@@ -35,6 +35,8 @@ describe("Model methods", function() {
           "https://vignette.wikia.nocookie.net/adventuretimewithfinnandjake/images/f/f6/Jake_w_lady.png/revision/latest?cb=20120729200735",
         age: 18
       });
+      expect(rainicorn.name).to.equal("Lady Rainicorn");
+      await rainicorn.update({name: 'lAdY rAinIcOrN'})
       expect(rainicorn.name).to.equal("Lady Rainicorn");
     });
   });
