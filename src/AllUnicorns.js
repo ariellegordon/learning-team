@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import data from "./data";
-import UnicornCard from "./UnicornCard";
+import React, { Component } from 'react';
+// import logo from "./logo.svg";
+// import "./App.css";
+import data from './data';
+import UnicornCard from './UnicornCard';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      unicorns: []
+      unicorns: [],
     };
   }
 
