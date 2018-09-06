@@ -30,7 +30,7 @@
     "build": "react-scripts build",
     "test": "mocha -w test/*.spec.js --compilers js:babel-core/register --require babel-polyfill",
     "eject": "react-scripts eject",
-    "seed": "node seed.js",
+    "seed": "node seed.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
